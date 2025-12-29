@@ -135,8 +135,8 @@ except:
         if data_dump:
             print(">> this file is marshal")
             print(">> convert to PYC....")
-            open(r"{}{}_pyc.pyc".format(path_save,file_name2),'wb').write(get_magic(pyver) + data_dump)
-            print(">> saved [{}_pyc.pyc]".format(file_name2))
+            open(r"{}{}.pyc".format(path_save,file_name2),'wb').write(get_magic(pyver) + data_dump)
+            print(">> saved [{}.pyc]".format(file_name2))
             print(">> Done!")
         else:
             pass

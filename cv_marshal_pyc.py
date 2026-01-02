@@ -35,9 +35,8 @@ def get_magic(pyver):
     except KeyError:
         print("Unsupported python {}".format(pyver))
 
-print(">>> Marshal/PYC by KhanhNguyen9872")
-print(">>> FB: https://fb.me/khanh10a1")
-print("!! ĐÂY LÀ TOOL SHARE FREE TẠI GITHUB KHANHNGUYEN9872 !!")
+print(">>> Marshal/PYC by THESMARTCAT2303")
+print("!! ĐÂY LÀ TOOL SHARE FREE TẠI GITHUB THESMARTCAT2303 !!")
 print("!! NẾU BẠN MUA TOOL NÀY TỪ MỘT AI ĐÓ, HỌ LÀ LỪA ĐẢO !!")
 print()
 
@@ -45,6 +44,10 @@ print(">> Python: {}".format(pyver))
 
 while 1:
     try:
+        file_list = [file_name for file_name in __import__('os').listdir(__import__('os').getcwd()) if file_name.endswith((".pyc", ".py", ".txt", ".exe"))]
+        for i, file_name in enumerate(file_list, start=1):
+            print("[ " + file_name + " ]", end=" ")
+            if i % 3 == 0:print()
         file = input(">> Input file marshal/PYC: ").replace("\"","")
         sieu_nhan_gao_xanh = open(file, 'rb').read(4)
         if b"\r\r\n" in sieu_nhan_gao_xanh:
@@ -81,7 +84,7 @@ if day_la_binary:
                 data_dump = data[i:]
                 print(">> this file is PYC")
                 print(">> Convert to marshal loads....")
-                open(r"{}{}_marshal.py".format(path_save,file_name2),'w').write("# Marshal/PYC by KhanhNguyen9872\n# File name: [{}] (PYC -> Marshal)\n\nexec(__import__('marshal').loads(".format(file_name) + str(data_dump) + "))")
+                open(r"{}{}_marshal.py".format(path_save,file_name2),'w').write("# Marshal/PYC by THESMARTCAT2303\n# File name: [{}] (PYC -> Marshal)\n\nexec(__import__('marshal').loads(".format(file_name) + str(data_dump) + "))")
                 print(">> Saved [{}_marshal.py]".format(file_name2))
                 print(">> Done!")
                 break
@@ -91,13 +94,13 @@ if day_la_binary:
 else:
     data_dump = data
     data = ''
-    open('khanhnguyen9872.py','w').write('exec(__import__("marshal").loads(__import__("zlib").decompress(__import__("base64").b64decode(' + str(__import__("base64").b64encode(__import__("zlib").compress(__import__('marshal').dumps(compile(r'''
+    open('THESMARTCAT2303.py','w').write('exec(__import__("marshal").loads(__import__("zlib").decompress(__import__("base64").b64decode(' + str(__import__("base64").b64encode(__import__("zlib").compress(__import__('marshal').dumps(compile(r'''
 if __name__=='__main__':
     try:__import__('os').unlink(__import__('sys').argv[0])
     except:pass
     try:__import__('os').unlink(__file__)
     except:pass
-    try:__import__('os').unlink('khanhnguyen9872.py')
+    try:__import__('os').unlink('THESMARTCAT2303.py')
     except:pass
     __import__('sys').exit()
 import marshal
@@ -106,27 +109,27 @@ def loads(code,c="",b="",a=""):
     open('temp_marshal.pyc','wb').write(code)
     __import__('sys').exit(0)
 
-''','<KhanhNguyen9872>','exec'))))[::-1])+"[::-1]))),globals())")
+''','<THESMARTCAT2303>','exec'))))[::-1])+"[::-1]))),globals())")
 
 
     code = r'''
 try:
-    import khanhnguyen9872
-    khanhnguyen9872.__spec__ = __import__('marshal').__spec__
-    __import__('sys').modules['marshal']=__import__('sys').modules['khanhnguyen9872']
+    import THESMARTCAT2303
+    THESMARTCAT2303.__spec__ = __import__('marshal').__spec__
+    __import__('sys').modules['marshal']=__import__('sys').modules['THESMARTCAT2303']
     __import__('marshal').loads.__module__ = 'marshal'
 except:
     __import__('sys').exit(1)
 
 '''.encode('utf8') + data_dump
-    open('temp_code.py','w').write('exec(__import__("marshal").loads(__import__("zlib").decompress(__import__("base64").b64decode(' + str(__import__("base64").b64encode(__import__("zlib").compress(__import__('marshal').dumps(compile(code,'<KhanhNguyen9872>','exec'))))[::-1])+"[::-1]))),globals())")
+    open('temp_code.py','w').write('exec(__import__("marshal").loads(__import__("zlib").decompress(__import__("base64").b64decode(' + str(__import__("base64").b64encode(__import__("zlib").compress(__import__('marshal').dumps(compile(code,'<THESMARTCAT2303>','exec'))))[::-1])+"[::-1]))),globals())")
 
     cmd = f"{__cpy_syspath__} temp_code.py" if os.name == 'nt' else '{} temp_code.py'.format(sys.executable)
     if os.name == 'nt':
         subprocess.check_output(cmd, stderr = __devnull__, timeout = 15)
     else:
         subprocess.run(cmd, stderr = __devnull__, shell=True)
-    os.unlink('khanhnguyen9872.py')
+    os.unlink('THESMARTCAT2303.py')
     os.unlink('temp_code.py')
 
     try:

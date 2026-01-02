@@ -46,8 +46,8 @@ while 1:
     try:
         file_list = [file_name for file_name in __import__('os').listdir(__import__('os').getcwd()) if file_name.endswith((".pyc", ".py", ".txt", ".exe"))]
         for i, file_name in enumerate(file_list, start=1):
-            print("[ " + file_name + " ]", end=" ")
-            if i % 3 == 0:print()
+            print(" " + file_name + " ", end=" ")
+            if i % 1 == 0:print()
         file = input(">> Input file marshal/PYC: ").replace("\"","")
         sieu_nhan_gao_xanh = open(file, 'rb').read(4)
         if b"\r\r\n" in sieu_nhan_gao_xanh:
